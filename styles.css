@@ -99,7 +99,7 @@ button,input{font:inherit}
 .lesson-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px}.lesson-card{border:1px solid rgba(255,255,255,.12);border-radius:14px;overflow:hidden;background:rgba(255,255,255,.04)}.lesson-card:hover{transform:translateY(-3px);border-color:var(--gold)}.lesson-thumb{height:110px;display:grid;place-items:center;background:linear-gradient(135deg,#0e408f,#061b45);font-size:25px;color:var(--gold)}.lesson-body{padding:16px}.lesson-body p{font:600 11px var(--mono);text-transform:uppercase;color:var(--muted)}.lesson-body h3{font:600 17px var(--display);margin-top:6px}.lesson-body span{display:inline-block;margin-top:10px;font-size:12px;color:var(--gold2)}.coming-soon{opacity:.5}
 .lesson-page{max-width:760px}.video-placeholder{height:380px;display:grid;place-items:center;border:1px solid rgba(255,255,255,.12);border-radius:15px;background:rgba(255,255,255,.04);color:var(--muted)}.lesson-desc{margin:24px 0 40px;color:var(--muted)}.quiz-q{margin:25px 0}.quiz-question{font:600 17px var(--display);margin-bottom:12px}.quiz-options{display:grid;gap:8px}.quiz-option{padding:12px;text-align:left;border:1px solid rgba(255,255,255,.16);border-radius:8px;background:rgba(255,255,255,.04);color:white}.quiz-option.selected{border:2px solid var(--gold)}.quiz-option.correct{background:rgba(60,220,140,.14);border-color:#4adb9b}.quiz-option.incorrect{background:rgba(247,100,100,.13);border-color:#f06c6c}.quiz-result{margin-top:15px;color:var(--gold2)}
 .quiz-diagnosis{margin-top:24px}.diagnosis-panel{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.12);border-radius:12px;padding:20px 22px}.diagnosis-panel.diagnosis-clear{padding:16px 20px;color:var(--gold2)}.misconception-list{list-style:none;padding:0;margin:0 0 18px;display:grid;gap:14px}.misconception-list li strong{display:block;font:600 14px var(--display);margin-bottom:4px}.misconception-list li p{margin:0;color:var(--muted);font-size:14px;line-height:1.5}.rec-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px}.rec-card{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:10px;padding:14px 16px}.rec-card.coming-soon{opacity:.5}.rec-type{font:600 11px var(--display);text-transform:uppercase;letter-spacing:.05em;color:var(--muted);margin-bottom:4px}.rec-title{font:600 14px var(--display);margin-bottom:8px}.rec-link{font-size:13px;color:var(--gold2)}.coming-soon-badge{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.05em}.diagnosis-empty{color:var(--muted);font-size:14px;margin:0}
-.dashboard-page h1{font:700 clamp(44px,6vw,74px)/1 var(--display)}.dashboard-lead{max-width:720px;color:var(--muted);font-size:18px;margin-top:15px}.dashboard-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:42px}.dashboard-card{padding:28px;border:1px solid rgba(255,255,255,.12);border-radius:18px;background:rgba(255,255,255,.04)}.dashboard-card span{font-size:38px}.dashboard-card h2{font:700 25px var(--display);margin:12px 0 6px}.dashboard-card p{color:var(--muted)}
+.dashboard-page h1{font:700 clamp(44px,6vw,74px)/1 var(--display)}.dashboard-lead{max-width:720px;color:var(--muted);font-size:18px;margin-top:15px}.dashboard-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:42px}.dashboard-card{padding:28px;border:1px solid rgba(255,255,255,.12);border-radius:18px;background:rgba(255,255,255,.04)}.dashboard-card h2{font:700 25px var(--display);margin:12px 0 6px}.dashboard-card p{color:var(--muted)}
 .account-menu{position:relative}.account-trigger{display:flex;align-items:center;gap:8px;border:1px solid rgba(255,255,255,.2);background:rgba(255,255,255,.05);padding:6px 10px 6px 6px;border-radius:999px;color:white}.account-trigger img,.account-trigger>span{width:30px;height:30px;border-radius:50%;object-fit:cover;display:grid;place-items:center;background:var(--gold);color:#10244c}.account-dropdown{position:absolute;right:0;top:48px;min-width:190px;padding:7px;border-radius:10px;background:white;color:#10244c;box-shadow:0 15px 40px rgba(0,0,0,.3)}.account-dropdown a,.account-dropdown button{display:block;width:100%;padding:10px;border:0;background:none;text-align:left;color:inherit}
 .site-footer{padding:25px 0;background:#03102a;color:var(--muted);font-size:13px}
 
@@ -857,3 +857,56 @@ button,input{font:inherit}
   padding:0;
 }
 .message-delete-btn:hover{ text-decoration:underline; }
+
+/* ===========================================================
+   DASHBOARD CARDS (redesigned): title first, then a clickable
+   animated illustration, then a short description.
+=========================================================== */
+.dashboard-card{display:flex;flex-direction:column;align-items:center;text-align:center;gap:10px}
+.dashboard-card h2{margin:0}
+.card-art{width:100%;max-width:170px;height:auto;margin:4px 0}
+
+/* --- Biology: pulsing cell --- */
+.cell-membrane{fill:rgba(85,239,159,.12);stroke:#55ef9f;stroke-width:1.5}
+.cell-nucleus{fill:rgba(124,110,255,.35);stroke:#8f86ff;stroke-width:1.5}
+.cell-nucleolus{fill:#8f86ff}
+.cell-mito{fill:rgba(255,180,120,.35);stroke:#ffb478;stroke-width:1.2}
+.cell-vesicle{fill:#55ef9f;opacity:.7}
+.cell-nucleus-group{animation:cellPulse 3.2s ease-in-out infinite;transform-origin:92px 98px}
+@keyframes cellPulse{0%,100%{transform:scale(1)}50%{transform:scale(1.08)}}
+
+/* --- Chemistry: orbiting electrons around two bonded atoms --- */
+.electron-orbit{fill:none;stroke:rgba(255,255,255,.18);stroke-width:1}
+.atom-nucleus-a{fill:rgba(55,138,221,.3);stroke:#378add;stroke-width:1.5}
+.atom-nucleus-b{fill:rgba(85,239,159,.3);stroke:#55ef9f;stroke-width:1.5}
+.atom-label{font:600 13px var(--display);fill:var(--white)}
+.electron-dot{fill:var(--gold)}
+.electron-spin-a{transform-origin:70px 100px;animation:spin 4s linear infinite}
+.electron-spin-b{transform-origin:130px 100px;animation:spin 4s linear infinite reverse}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+/* --- Physics: apple falling from a branch (a nod to Newton) --- */
+.branch{stroke:#8a6d52;stroke-width:3;stroke-linecap:round}
+.apple-body{fill:#e24b4a;stroke:#a32d2d;stroke-width:1.2}
+.apple-stem{fill:none;stroke:#5f6e3a;stroke-width:2.5;stroke-linecap:round}
+.apple-fall{animation:appleFall 3.4s ease-in infinite}
+@keyframes appleFall{
+  0%{transform:translateY(0);opacity:1}
+  72%{transform:translateY(118px);opacity:1}
+  82%{opacity:0}
+  83%{transform:translateY(0);opacity:0}
+  100%{transform:translateY(0);opacity:1}
+}
+@media (prefers-reduced-motion:reduce){
+  .cell-nucleus-group,.electron-spin-a,.electron-spin-b,.apple-fall{animation:none}
+}
+
+/* ===========================================================
+   PICK UP WHERE YOU LEFT OFF
+=========================================================== */
+.continue-section{margin-top:48px}
+.continue-card{display:flex;align-items:center;gap:16px;padding:20px 24px;border:1px solid rgba(231,184,75,.35);border-radius:14px;background:rgba(231,184,75,.08);max-width:520px;transition:.15s}
+.continue-card:hover{border-color:var(--gold);transform:translateY(-2px)}
+.continue-type{font:600 11px var(--mono);text-transform:uppercase;letter-spacing:.05em;color:var(--gold2);white-space:nowrap}
+.continue-title{font:600 16px var(--display);color:var(--white);flex:1}
+.continue-arrow{color:var(--gold);font-size:18px}

@@ -21,6 +21,15 @@ document.addEventListener("DOMContentLoaded", async () => {
   }
 
   document.getElementById("room-body").hidden = false;
+
+  if (typeof recordActivity === "function") {
+    recordActivity({
+      type: "room",
+      title: room.className,
+      url: "room.html?id=" + encodeURIComponent(room.id)
+    });
+  }
+
   renderRoomHeader(room);
   await refreshMessages(room.id);
   await setupJoinAndComposer(room);

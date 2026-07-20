@@ -17,13 +17,69 @@
   <p class="eyebrow">Student dashboard</p>
   <h1 id="welcome-heading">Welcome back</h1>
   <p class="dashboard-lead" id="dashboard-lead">Your account unlocks the complete learning platform.</p>
+
   <section class="dashboard-grid" id="dashboard-grid">
-    <a href="biology.html" class="dashboard-card" data-subject="biology"><span>🧬</span><h2>Biology</h2><p>Cells, genetics, physiology, and ecosystems.</p></a>
-    <a href="chemistry.html" class="dashboard-card" data-subject="chemistry"><span>🧪</span><h2>Chemistry</h2><p>Matter, reactions, bonding, and calculations.</p></a>
-    <a href="physics.html" class="dashboard-card" data-subject="physics"><span>⚛️</span><h2>Physics</h2><p>Motion, forces, energy, waves, and electricity.</p></a>
+    <a href="biology.html" class="dashboard-card" data-subject="biology">
+      <h2>Biology</h2>
+      <svg class="card-art card-art-bio" viewBox="0 0 200 200" aria-hidden="true">
+        <ellipse cx="100" cy="102" rx="82" ry="66" class="cell-membrane"/>
+        <ellipse cx="145" cy="62" rx="15" ry="8" class="cell-mito"/>
+        <ellipse cx="52" cy="132" rx="15" ry="8" class="cell-mito"/>
+        <circle cx="140" cy="142" r="6" class="cell-vesicle"/>
+        <circle cx="58" cy="62" r="6" class="cell-vesicle"/>
+        <g class="cell-nucleus-group">
+          <circle cx="92" cy="98" r="30" class="cell-nucleus"/>
+          <circle cx="92" cy="98" r="13" class="cell-nucleolus"/>
+        </g>
+      </svg>
+      <p>Cells, genetics, physiology, and ecosystems.</p>
+    </a>
+
+    <a href="chemistry.html" class="dashboard-card" data-subject="chemistry">
+      <h2>Chemistry</h2>
+      <svg class="card-art card-art-chem" viewBox="0 0 200 200" aria-hidden="true">
+        <ellipse cx="70" cy="100" rx="42" ry="28" class="electron-orbit"/>
+        <ellipse cx="130" cy="100" rx="42" ry="28" class="electron-orbit"/>
+        <circle cx="70" cy="100" r="21" class="atom-nucleus atom-nucleus-a"/>
+        <circle cx="130" cy="100" r="21" class="atom-nucleus atom-nucleus-b"/>
+        <text x="70" y="105" class="atom-label" text-anchor="middle">Na</text>
+        <text x="130" y="105" class="atom-label" text-anchor="middle">Cl</text>
+        <g class="electron-spin electron-spin-a">
+          <circle cx="112" cy="100" r="5" class="electron-dot"/>
+        </g>
+        <g class="electron-spin electron-spin-b">
+          <circle cx="88" cy="100" r="5" class="electron-dot"/>
+        </g>
+      </svg>
+      <p>Matter, reactions, bonding, and calculations.</p>
+    </a>
+
+    <a href="physics.html" class="dashboard-card" data-subject="physics">
+      <h2>Physics</h2>
+      <svg class="card-art card-art-phys" viewBox="0 0 200 200" aria-hidden="true">
+        <line x1="35" y1="24" x2="165" y2="24" class="branch"/>
+        <line x1="70" y1="24" x2="70" y2="10" class="branch"/>
+        <line x1="130" y1="24" x2="130" y2="14" class="branch"/>
+        <g class="apple-fall">
+          <path d="M100 26 Q106 14 116 20" class="apple-stem"/>
+          <circle cx="100" cy="46" r="19" class="apple-body"/>
+        </g>
+      </svg>
+      <p>Motion, forces, energy, waves, and electricity.</p>
+    </a>
+  </section>
+
+  <section id="continue-section" class="continue-section" hidden>
+    <p class="section-label">Pick up where you left off</p>
+    <a id="continue-card" class="continue-card" href="#">
+      <span id="continue-type" class="continue-type"></span>
+      <span id="continue-title" class="continue-title"></span>
+      <span class="continue-arrow">&rarr;</span>
+    </a>
   </section>
 </main>
 <script src="firebase-config.js"></script>
 <script src="auth-state.js"></script>
+<script src="activity.js"></script>
 <script src="dashboard.js"></script>
 </body></html>

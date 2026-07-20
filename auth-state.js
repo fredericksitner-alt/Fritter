@@ -52,6 +52,7 @@ async function signOutUser() {
     } catch (_) {}
   }
   localStorage.removeItem("elementalScienceUser");
+  localStorage.removeItem("fritterLastActivity");
   window.location.href = "index.html";
 }
 

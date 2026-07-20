@@ -176,6 +176,17 @@ function renderLessonPage() {
   }
 
   title.textContent = lesson.title;
+
+  // Only track lessons that actually have content — no point sending
+  // someone "back" to a coming-soon placeholder.
+  if (!lesson.comingSoon && typeof recordActivity === "function") {
+    recordActivity({
+      type: "lesson",
+      title: lesson.title,
+      url: "lesson.html?id=" + encodeURIComponent(lesson.id)
+    });
+  }
+
   const topicName = (typeof BIOLOGY_TOPICS !== "undefined" && lesson.topic)
     ? (BIOLOGY_TOPICS.find(t => t.id === lesson.topic) || {}).name
     : null;

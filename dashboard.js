@@ -40,4 +40,15 @@ document.addEventListener("DOMContentLoaded", () => {
     const goalPhrase = GOAL_PHRASES[profile.goal] || "your goals";
     leadEl.textContent = `Personalized for ${levelLabel} students \u2014 ${goalPhrase}.`;
   }
+
+  if (typeof getLastActivity === "function") {
+    const last = getLastActivity();
+    if (last) {
+      const typeLabels = { lesson: "Continue lesson", room: "Back to room" };
+      document.getElementById("continue-type").textContent = typeLabels[last.type] || "Continue";
+      document.getElementById("continue-title").textContent = last.title;
+      document.getElementById("continue-card").href = last.url;
+      document.getElementById("continue-section").hidden = false;
+    }
+  }
 });
