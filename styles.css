@@ -889,18 +889,26 @@ button,input{font:inherit}
 .electron-spin-b{transform-origin:130px 100px;animation:spin 4s linear infinite reverse}
 @keyframes spin{to{transform:rotate(360deg)}}
 
-/* --- Physics: apple falling from a branch (a nod to Newton) --- */
-.branch{stroke:#8a6d52;stroke-width:3;stroke-linecap:round}
+/* --- Physics: apple spinning in place, wind streaks suggesting fall (a nod to Newton) --- */
 .apple-body{fill:#e24b4a;stroke:#a32d2d;stroke-width:1.2}
 .apple-stem{fill:none;stroke:#5f6e3a;stroke-width:2.5;stroke-linecap:round}
-.apple-fall-1{animation:appleFall 2.6s linear infinite}
-.apple-fall-2{animation:appleFall 2.6s linear infinite;animation-delay:-1.3s}
-@keyframes appleFall{
-  0%{transform:translateY(-60px)}
-  100%{transform:translateY(220px)}
+.apple-leaf{fill:#7fbf5a;stroke:#4f7d38;stroke-width:1}
+.apple-spin{animation:appleSpin 3.6s linear infinite;transform-origin:100px 81px}
+@keyframes appleSpin{to{transform:rotate(360deg)}}
+
+.wind-line{stroke:rgba(255,255,255,.55);stroke-width:2;stroke-linecap:round;opacity:0}
+.wind-1{animation:windStream 1.6s linear infinite}
+.wind-2{animation:windStream 1.6s linear infinite;animation-delay:-.4s}
+.wind-3{animation:windStream 1.6s linear infinite;animation-delay:-.8s}
+.wind-4{animation:windStream 1.6s linear infinite;animation-delay:-1.2s}
+@keyframes windStream{
+  0%{transform:translateY(22px);opacity:0}
+  20%{opacity:1}
+  75%{opacity:1}
+  100%{transform:translateY(-30px);opacity:0}
 }
 @media (prefers-reduced-motion:reduce){
-  .cell-nucleus-group,.electron-spin-a,.electron-spin-b,.apple-fall-1,.apple-fall-2{animation:none}
+  .cell-nucleus-group,.electron-spin-a,.electron-spin-b,.apple-spin,.wind-1,.wind-2,.wind-3,.wind-4{animation:none}
 }
 
 /* ===========================================================
