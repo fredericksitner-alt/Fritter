@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>Chemistry — Fritter</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Literata:opsz,wght@6..72,400;6..72,600&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="protected-page" data-subject="chemistry">
+<header class="site-header"><div class="wrap header-inner">
+  <a href="dashboard.html" class="logo"><span class="logo-accent">F</span>ritter</a>
+  <nav class="main-nav"><a href="dashboard.html" class="nav-dashboard">Dashboard</a><a href="biology.html">Biology</a><a href="chemistry.html">Chemistry</a><a href="physics.html">Physics</a><a href="rooms.html">Rooms</a></nav>
+  <div data-auth-nav></div>
+</div></header>
+
+<section class="page-header">
+  <div class="wrap">
+    <p class="eyebrow">Subject</p>
+    <h1>Chemistry</h1>
+    <p>The study of matter, bonding, reactions, and change. Pick a topic below, at whatever depth you need.</p>
+  </div>
+</section>
+
+<main class="wrap" style="padding:36px 0 80px;">
+
+  <!-- Topic tabs, built from CHEMISTRY_TOPICS in data.js -->
+  <div class="content-tabs" id="topic-tabs" style="justify-content:flex-start; margin-bottom:28px;"></div>
+
+  <!-- Subtopic cards for whichever topic tab is currently selected -->
+  <div class="lesson-grid" id="topic-lesson-grid"></div>
+
+</main>
+
+<footer class="site-footer"><div class="wrap">ElementalScience &mdash; designed by students, for students.</div></footer>
+
+<script src="data.js"></script>
+<script src="script.js"></script>
+<script src="firebase-config.js"></script>
+<script src="auth-state.js"></script>
+<script src="topic-hub.js"></script>
+</body></html>

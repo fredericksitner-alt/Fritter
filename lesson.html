@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>Lesson — Fritter</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Literata:opsz,wght@6..72,400;6..72,600&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="protected-page">
+<header class="site-header"><div class="wrap header-inner">
+  <a href="dashboard.html" class="logo"><span class="logo-accent">F</span>ritter</a>
+  <nav class="main-nav"><a href="dashboard.html" class="nav-dashboard">Dashboard</a><a href="biology.html">Biology</a><a href="chemistry.html">Chemistry</a><a href="physics.html">Physics</a><a href="rooms.html">Rooms</a></nav>
+  <div data-auth-nav></div>
+</div></header>
+<section class="page-header"><div class="wrap"><p class="eyebrow" id="lesson-eyebrow">Lesson</p><h1 id="lesson-title"></h1></div></section>
+<main class="wrap lesson-page">
+  <div id="lesson-content" hidden>
+    <div id="video-section"></div>
+    <div id="written-section"></div>
+  </div>
+  <div id="quiz-block" hidden>
+    <p class="eyebrow">Check your understanding</p>
+    <div id="quiz-questions"></div>
+    <button id="quiz-submit" class="btn btn-primary">Check answers</button>
+    <p id="quiz-result" class="quiz-result"></p>
+    <div id="quiz-diagnosis" class="quiz-diagnosis" hidden></div>
+  </div>
+  <div id="lesson-not-found" hidden>This lesson doesn't exist &mdash; check the link, or head back to <a href="dashboard.html" style="color:var(--gold2)">the dashboard</a>.</div>
+</main>
+<script src="data.js"></script><script src="script.js"></script><script src="firebase-config.js"></script><script src="auth-state.js"></script>
+</body></html>

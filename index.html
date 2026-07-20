@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fritter — Learn science for free</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Literata:opsz,wght@6..72,400;6..72,600&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="home-page">
+  <header class="site-header public-header">
+    <div class="wrap header-inner">
+      <a href="#top" class="logo"><span class="logo-accent">F</span>ritter</a>
+      <nav class="main-nav" aria-label="Public navigation">
+        <a href="#account" class="btn btn-ghost">Sign in</a>
+      </nav>
+      <button id="menu-btn" class="menu-btn" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <nav id="mobile-nav" class="mobile-nav" aria-label="Mobile navigation">
+      <a href="#account">Sign in / Create account</a>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="minimal-hero" aria-labelledby="home-title">
+      <div class="atom-scene" aria-hidden="true">
+        <div class="orbit orbit-small"><span class="electron"></span></div>
+        <div class="orbit orbit-medium"><span class="electron"></span></div>
+        <div class="orbit orbit-large"><span class="electron"></span></div>
+      </div>
+      <div class="minimal-hero-copy">
+        <h1 id="home-title">Science Is Hard</h1>
+        <p>We Make it Easy</p>
+      </div>
+      <a class="scroll-cue" href="#account">
+        <span>Get Started</span><span aria-hidden="true">↓</span>
+      </a>
+    </section>
+
+    <section class="channel-section" id="account" aria-label="Sign up section">
+      <div class="channel-sticky">
+        <div class="membrane-scene" aria-hidden="true">
+          <div id="ion-field" class="ion-field"></div>
+<div class="membrane">
+            <div class="lipid-row lipid-row-top">
+              <div class="lipid-half lipid-half-left"></div>
+              <div class="lipid-gap"></div>
+              <div class="lipid-half lipid-half-right"></div>
+            </div>
+            <div class="lipid-row lipid-row-bottom">
+              <div class="lipid-half lipid-half-left"></div>
+              <div class="lipid-gap"></div>
+              <div class="lipid-half lipid-half-right"></div>
+            </div>
+            <div class="channel-protein">
+              <div class="channel-half channel-left"></div>
+              <div class="channel-half channel-right"></div>
+              <div class="channel-glow"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="account-panel">
+          <div class="auth-card">
+            <div class="auth-tabs" role="tablist" aria-label="Account options">
+              <button class="auth-tab is-active" type="button" data-auth-mode="signup" role="tab" aria-selected="true">Create account</button>
+              <button class="auth-tab" type="button" data-auth-mode="signin" role="tab" aria-selected="false">Sign in</button>
+            </div>
+
+            <h3 id="auth-heading">Create your free account</h3>
+            <p id="auth-subtitle">Start saving your progress in seconds.</p>
+
+            <button id="google-signin" class="google-btn" type="button">
+              <svg width="19" height="19" viewBox="0 0 24 24" aria-hidden="true">
+                <path fill="#4285F4" d="M21.6 12.23c0-.71-.06-1.4-.18-2.07H12v3.92h5.38a4.6 4.6 0 0 1-2 3.02v2.51h3.24c1.9-1.75 2.98-4.33 2.98-7.38z"/>
+                <path fill="#34A853" d="M12 22c2.7 0 4.97-.9 6.63-2.39l-3.24-2.51c-.9.6-2.04.96-3.39.96-2.61 0-4.82-1.76-5.61-4.13H3.04v2.59A10 10 0 0 0 12 22z"/>
+                <path fill="#FBBC05" d="M6.39 13.93A6.02 6.02 0 0 1 6.08 12c0-.67.11-1.32.31-1.93V7.48H3.04A10 10 0 0 0 2 12c0 1.61.38 3.13 1.04 4.52l3.35-2.59z"/>
+                <path fill="#EA4335" d="M12 5.94c1.47 0 2.78.5 3.82 1.49l2.87-2.87A9.63 9.63 0 0 0 12 2a10 10 0 0 0-8.96 5.48l3.35 2.59C7.18 7.7 9.39 5.94 12 5.94z"/>
+              </svg>
+              Continue with Google
+            </button>
+
+            <div class="auth-divider"><span>or continue with email</span></div>
+
+            <form id="auth-form" novalidate>
+              <div id="name-field" class="form-field">
+                <label for="name">Name</label>
+                <input id="name" autocomplete="given-name" placeholder="Frederick">
+              </div>
+              <div class="form-field">
+                <label for="email">Email</label>
+                <input id="email" type="email" autocomplete="email" placeholder="you@example.com" required>
+              </div>
+              <div class="form-field">
+                <label for="password">Password</label>
+                <input id="password" type="password" autocomplete="new-password" placeholder="At least 8 characters" minlength="8" required>
+              </div>
+              <div id="confirm-field" class="form-field">
+                <label for="confirm-password">Confirm password</label>
+                <input id="confirm-password" type="password" autocomplete="new-password" placeholder="Repeat your password">
+              </div>
+              <button id="email-submit" class="btn btn-primary auth-submit" type="submit">Create account</button>
+            </form>
+
+            <p id="auth-message" class="auth-message" role="status" aria-live="polite"></p>
+            <p class="auth-terms">By continuing, you agree to the Terms and Privacy Policy.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer"><div class="wrap">Fritter — designed by students, for students.</div></footer>
+
+  <script src="script.js"></script>
+  <script src="firebase-config.js"></script>
+  <script src="auth.js"></script>
+</body>
+</html>

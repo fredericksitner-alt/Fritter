@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>Rooms — Fritter</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Literata:opsz,wght@6..72,400;6..72,600&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="protected-page">
+<header class="site-header"><div class="wrap header-inner">
+  <a href="dashboard.html" class="logo"><span class="logo-accent">F</span>ritter</a>
+  <nav class="main-nav"><a href="dashboard.html" class="nav-dashboard">Dashboard</a><a href="biology.html">Biology</a><a href="chemistry.html">Chemistry</a><a href="physics.html">Physics</a><a href="rooms.html">Rooms</a></nav>
+  <div data-auth-nav></div>
+</div></header>
+
+<section class="page-header" style="padding:50px 0 40px;">
+  <div class="wrap">
+    <p class="eyebrow">Rooms</p>
+    <h1 style="font-size:clamp(30px,4vw,42px)">Rooms</h1>
+    <p>Open discussion boards for a class, school, or topic. Anyone can read a room &mdash; join it to post or upload something.</p>
+  </div>
+</section>
+
+<main class="wrap" style="padding:10px 0 80px;">
+
+  <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:22px; flex-wrap:wrap; gap:12px;">
+    <p class="section-label" style="margin:0;">Browse rooms</p>
+    <button id="create-room-btn" class="btn btn-primary">+ Create a room</button>
+  </div>
+
+  <div id="rooms-empty" class="rooms-empty" hidden>
+    <p>No rooms yet &mdash; be the first to create one for your class.</p>
+  </div>
+
+  <div id="rooms-grid" class="rooms-grid"></div>
+
+  <!-- Create-room form, hidden until "+ Create a room" is clicked -->
+  <div id="create-room-panel" class="room-form-panel" hidden>
+    <p class="section-label">New room</p>
+    <div class="form-field">
+      <label for="room-school">School (optional)</label>
+      <input id="room-school" placeholder="e.g. Lincoln High School">
+    </div>
+    <div class="form-field">
+      <label for="room-class">Class / topic label</label>
+      <input id="room-class" placeholder="e.g. BIO 101, or &quot;AP Bio exam prep&quot;">
+    </div>
+    <div class="form-field">
+      <label for="room-description">Short description</label>
+      <input id="room-description" placeholder="What's this room for?">
+    </div>
+    <div class="room-form-actions">
+      <button id="room-create-submit" class="btn btn-primary">Create room</button>
+      <button id="room-create-cancel" class="btn btn-ghost">Cancel</button>
+    </div>
+  </div>
+
+</main>
+
+<script src="firebase-config.js"></script>
+<script src="auth-state.js"></script>
+<script src="rooms-data.js"></script>
+<script src="rooms.js"></script>
+</body></html>

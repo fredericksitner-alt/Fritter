@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>Get started — Fritter</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Literata:opsz,wght@6..72,400;6..72,600&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="protected-page">
+<header class="site-header"><div class="wrap header-inner">
+  <a href="dashboard.html" class="logo"><span class="logo-accent">F</span>ritter</a>
+  <div data-auth-nav></div>
+</div></header>
+
+<section class="page-header" style="padding:44px 0 34px;">
+  <div class="wrap">
+    <p class="eyebrow">Quick setup</p>
+    <h1 style="font-size:clamp(28px,4vw,40px)">Let's tailor things to you</h1>
+    <p>Three quick questions so recommendations and study plans actually fit what you need. Takes about 20 seconds.</p>
+  </div>
+</section>
+
+<main class="wrap" style="max-width:720px; padding:20px 0 80px;">
+
+  <!-- Progress indicator -->
+  <div class="onboard-progress">
+    <span class="onboard-dot is-active" data-dot="1"></span>
+    <span class="onboard-dot" data-dot="2"></span>
+    <span class="onboard-dot" data-dot="3"></span>
+  </div>
+
+  <!-- STEP 1: level -->
+  <section class="onboard-step is-active" data-step="1">
+    <p class="section-label">1. What level are you studying at?</p>
+    <div class="onboard-grid" data-field="level">
+      <button class="onboard-choice" type="button" data-value="high-school">
+        <span class="onboard-choice-title">High school</span>
+        <span class="onboard-choice-sub">Intro-level, class-paced</span>
+      </button>
+      <button class="onboard-choice" type="button" data-value="college">
+        <span class="onboard-choice-title">College</span>
+        <span class="onboard-choice-sub">More depth and detail</span>
+      </button>
+      <button class="onboard-choice" type="button" data-value="exploring">
+        <span class="onboard-choice-title">Just exploring</span>
+        <span class="onboard-choice-sub">Learning for fun, no class</span>
+      </button>
+    </div>
+  </section>
+
+  <!-- STEP 2: goal -->
+  <section class="onboard-step" data-step="2">
+    <p class="section-label">2. What are you studying for?</p>
+    <div class="onboard-grid" data-field="goal">
+      <button class="onboard-choice" type="button" data-value="class">
+        <span class="onboard-choice-title">A specific class</span>
+        <span class="onboard-choice-sub">Keeping up with schoolwork</span>
+      </button>
+      <button class="onboard-choice" type="button" data-value="exam">
+        <span class="onboard-choice-title">An upcoming exam</span>
+        <span class="onboard-choice-sub">AP, finals, entrance exams, etc.</span>
+      </button>
+      <button class="onboard-choice" type="button" data-value="curiosity">
+        <span class="onboard-choice-title">General interest</span>
+        <span class="onboard-choice-sub">No deadline, just curious</span>
+      </button>
+    </div>
+  </section>
+
+  <!-- STEP 3: subjects (multi-select) -->
+  <section class="onboard-step" data-step="3">
+    <p class="section-label">3. Which subjects interest you? <span style="text-transform:none; letter-spacing:0;">(pick any)</span></p>
+    <div class="onboard-grid" data-field="subjects" data-multi="true">
+      <button class="onboard-choice" type="button" data-value="biology">
+        <span class="onboard-choice-title">Biology</span>
+      </button>
+      <button class="onboard-choice" type="button" data-value="chemistry">
+        <span class="onboard-choice-title">Chemistry</span>
+      </button>
+      <button class="onboard-choice" type="button" data-value="physics">
+        <span class="onboard-choice-title">Physics</span>
+      </button>
+    </div>
+    <button id="onboard-finish" class="btn btn-primary" style="margin-top:24px;" disabled>Finish setup</button>
+  </section>
+
+</main>
+
+<script src="firebase-config.js"></script>
+<script src="auth-state.js"></script>
+<script src="onboarding.js"></script>
+</body></html>

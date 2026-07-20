@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>Dashboard — Fritter</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Literata:opsz,wght@6..72,400;6..72,600&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="protected-page">
+<header class="site-header"><div class="wrap header-inner">
+  <a href="dashboard.html" class="logo"><span class="logo-accent">F</span>ritter</a>
+  <nav class="main-nav"><a href="biology.html">Biology</a><a href="chemistry.html">Chemistry</a><a href="physics.html">Physics</a><a href="rooms.html">Rooms</a></nav>
+  <div data-auth-nav></div>
+</div></header>
+<main class="wrap dashboard-page">
+  <p class="eyebrow">Student dashboard</p>
+  <h1 id="welcome-heading">Welcome back</h1>
+  <p class="dashboard-lead" id="dashboard-lead">Your account unlocks the complete learning platform.</p>
+  <section class="dashboard-grid" id="dashboard-grid">
+    <a href="biology.html" class="dashboard-card" data-subject="biology"><span>🧬</span><h2>Biology</h2><p>Cells, genetics, physiology, and ecosystems.</p></a>
+    <a href="chemistry.html" class="dashboard-card" data-subject="chemistry"><span>🧪</span><h2>Chemistry</h2><p>Matter, reactions, bonding, and calculations.</p></a>
+    <a href="physics.html" class="dashboard-card" data-subject="physics"><span>⚛️</span><h2>Physics</h2><p>Motion, forces, energy, waves, and electricity.</p></a>
+  </section>
+</main>
+<script src="firebase-config.js"></script>
+<script src="auth-state.js"></script>
+<script src="dashboard.js"></script>
+</body></html>
