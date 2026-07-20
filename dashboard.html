@@ -23,13 +23,27 @@
       <h2>Biology</h2>
       <svg class="card-art card-art-bio" viewBox="0 0 200 200" aria-hidden="true">
         <ellipse cx="100" cy="102" rx="82" ry="66" class="cell-membrane"/>
-        <ellipse cx="145" cy="62" rx="15" ry="8" class="cell-mito"/>
-        <ellipse cx="52" cy="132" rx="15" ry="8" class="cell-mito"/>
-        <circle cx="140" cy="142" r="6" class="cell-vesicle"/>
-        <circle cx="58" cy="62" r="6" class="cell-vesicle"/>
+
+        <ellipse cx="148" cy="58" rx="15" ry="8" class="cell-mito"/>
+        <path d="M138 58 Q143 54 148 58 Q153 62 158 58" class="mito-cristae"/>
+        <ellipse cx="48" cy="148" rx="15" ry="8" class="cell-mito"/>
+        <path d="M38 148 Q43 144 48 148 Q53 152 58 148" class="mito-cristae"/>
+
+        <path d="M112 76 Q119 68 126 76 Q133 84 140 76" class="rough-er"/>
+        <circle cx="115" cy="74" r="2" class="ribosome-dot"/>
+        <circle cx="129" cy="78" r="2" class="ribosome-dot"/>
+        <circle cx="137" cy="72" r="2" class="ribosome-dot"/>
+
+        <path d="M136 100 Q149 96 162 100" class="golgi"/>
+        <path d="M134 106 Q149 102 164 106" class="golgi"/>
+        <path d="M132 112 Q149 108 166 112" class="golgi"/>
+
+        <circle cx="58" cy="70" r="5" class="cell-vesicle"/>
+        <circle cx="158" cy="140" r="5" class="cell-vesicle"/>
+
         <g class="cell-nucleus-group">
-          <circle cx="92" cy="98" r="30" class="cell-nucleus"/>
-          <circle cx="92" cy="98" r="13" class="cell-nucleolus"/>
+          <circle cx="80" cy="108" r="27" class="cell-nucleus"/>
+          <circle cx="80" cy="108" r="12" class="cell-nucleolus"/>
         </g>
       </svg>
       <p>Cells, genetics, physiology, and ecosystems.</p>
@@ -60,7 +74,11 @@
         <line x1="35" y1="24" x2="165" y2="24" class="branch"/>
         <line x1="70" y1="24" x2="70" y2="10" class="branch"/>
         <line x1="130" y1="24" x2="130" y2="14" class="branch"/>
-        <g class="apple-fall">
+        <g class="apple-fall apple-fall-1">
+          <path d="M100 26 Q106 14 116 20" class="apple-stem"/>
+          <circle cx="100" cy="46" r="19" class="apple-body"/>
+        </g>
+        <g class="apple-fall apple-fall-2">
           <path d="M100 26 Q106 14 116 20" class="apple-stem"/>
           <circle cx="100" cy="46" r="19" class="apple-body"/>
         </g>
