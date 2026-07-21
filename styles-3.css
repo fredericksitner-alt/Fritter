@@ -1,0 +1,922 @@
+:root{
+  --navy:#041534;--blue:#0b3478;--blue2:#1754ad;--gold:#e7b84b;--gold2:#ffe39a;
+  --white:#f7faff;--muted:rgba(247,250,255,.72);--display:"Space Grotesk",sans-serif;
+  --body:"Literata",serif;--mono:"IBM Plex Mono",monospace
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--navy);color:var(--white);font-family:var(--body);line-height:1.65}
+a{color:inherit;text-decoration:none}
+button,input{font:inherit}
+.wrap{width:min(1120px,calc(100% - 40px));margin:auto}
+.site-header{position:sticky;top:0;z-index:100;background:rgba(4,21,52,.9);border-bottom:1px solid rgba(255,255,255,.1);backdrop-filter:blur(15px)}
+.header-inner{height:72px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+.logo{font:700 19px var(--display)}.logo span{color:var(--gold)}
+.main-nav{display:flex;align-items:center;gap:28px;font:600 14px var(--display)}
+.main-nav>a:not(.btn):hover{color:var(--gold2)}
+.btn{display:inline-flex;align-items:center;justify-content:center;border:1px solid transparent;border-radius:9px;padding:11px 18px;font:700 14px var(--display);cursor:pointer;transition:.2s}
+.btn:hover{transform:translateY(-1px)}
+.btn-primary{background:var(--gold);color:#10244c}
+.btn-ghost{border-color:rgba(255,255,255,.28)}
+.menu-btn{display:none;width:38px;border:0;background:none}.menu-btn span{display:block;height:2px;background:white;margin:6px}
+.mobile-nav{display:none;max-height:0;overflow:hidden;background:var(--navy);transition:max-height .25s}.mobile-nav.open{max-height:300px}
+.mobile-nav a,.mobile-nav button{display:block;width:100%;padding:15px 22px;border:0;border-top:1px solid rgba(255,255,255,.08);background:none;color:white;text-align:left}
+
+.minimal-hero{min-height:calc(100svh - 72px);display:grid;place-items:center;position:relative;overflow:hidden;background:var(--navy)}
+.minimal-hero-copy{text-align:center;position:relative;z-index:2}.minimal-hero h1{font:700 clamp(48px,8vw,96px)/.95 var(--display)}.minimal-hero p{font:700 clamp(30px,5vw,60px)/1 var(--display);color:var(--gold);margin-top:18px}
+.atom-scene{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:min(75vw,680px);aspect-ratio:1}
+.orbit{position:absolute;left:50%;top:50%;border:2px solid rgba(126,170,255,.42);border-radius:50%;transform:translate(-50%,-50%);animation:spin 13s linear infinite}
+.orbit-small{width:42%;height:42%}.orbit-medium{width:68%;height:68%;animation-delay:-4s}.orbit-large{width:94%;height:94%;animation-delay:-8s}
+.electron{position:absolute;right:-7px;top:50%;width:14px;height:14px;border-radius:50%;background:var(--gold);box-shadow:0 0 18px var(--gold)}
+@keyframes spin{to{transform:translate(-50%,-50%) rotate(360deg)}}
+.scroll-cue{position:absolute;bottom:32px;display:flex;gap:10px;border:1px solid var(--gold);border-radius:999px;padding:10px 18px;color:var(--gold);font:600 14px var(--display)}
+
+
+.eyebrow{font:600 12px var(--mono);text-transform:uppercase;letter-spacing:.1em;color:var(--gold2);margin-bottom:12px}
+.channel-copy h2,.subject-tools h2{font:700 clamp(38px,5vw,64px)/1.02 var(--display)}
+
+.channel-section{height:250vh;--channel-progress:0;background:var(--navy)}
+.channel-sticky{position:sticky;top:72px;height:calc(100svh - 72px);overflow:hidden}
+.channel-copy{position:absolute;top:7%;left:50%;transform:translateX(-50%);text-align:center;width:min(760px,90%);z-index:4;opacity:calc(1 - var(--channel-progress)*1.8)}
+.channel-copy p:last-child{color:var(--muted);margin-top:12px}
+.membrane-scene{position:absolute;inset:0;overflow:hidden}
+.membrane{position:absolute;left:0;right:0;top:30%;height:180px;transform:translateY(-50%)}
+.lipid-row{position:absolute;left:-1%;width:102%;display:flex;align-items:center}
+.lipid-row-top{top:18px}.lipid-row-bottom{bottom:18px;transform:rotate(180deg)}
+.lipid-half{flex:1;display:flex;justify-content:space-around}
+.lipid-gap{flex:0 0 300px}
+.lipid{width:25px;height:70px;position:relative;flex:0 0 25px}.lipid i{display:block;width:24px;height:24px;border-radius:50%;background:#71b8ff;border:3px solid #c9e8ff;box-shadow:0 0 12px rgba(75,157,255,.6)}.lipid b:before,.lipid b:after{content:"";position:absolute;top:23px;width:3px;height:45px;background:#4a7fc6;border-radius:3px}.lipid b:before{left:8px;transform:rotate(5deg)}.lipid b:after{right:8px;transform:rotate(-5deg)}
+.channel-protein{position:absolute;left:50%;top:-25px;width:270px;height:230px;transform:translateX(-50%)}
+.channel-half{position:absolute;top:0;width:132px;height:230px;background:linear-gradient(135deg,#2e67c6,#123a83 65%,#071d4b);border:2px solid #7eb7ff;box-shadow:inset 0 0 30px rgba(0,0,0,.35),0 0 28px rgba(40,112,255,.35);transition:transform .2s linear}
+.channel-left{left:0;border-radius:90px 35px 35px 90px;transform:translateX(calc(var(--channel-progress)*-58px)) rotate(calc(var(--channel-progress)*-8deg))}
+.channel-right{right:0;border-radius:35px 90px 90px 35px;transform:translateX(calc(var(--channel-progress)*58px)) rotate(calc(var(--channel-progress)*8deg))}
+.channel-glow{position:absolute;left:50%;top:25px;width:75px;height:180px;transform:translateX(-50%) scaleX(calc(.05 + var(--channel-progress)));background:linear-gradient(180deg,transparent,rgba(255,227,154,.75),transparent);filter:blur(12px);opacity:var(--channel-progress)}
+.ion{position:absolute;z-index:5;width:58px;height:58px;border-radius:50%;display:grid;place-items:center;font:700 14px var(--display);box-shadow:0 0 20px currentColor;animation:float 4s ease-in-out infinite;transition:transform .15s linear,opacity .2s}
+.ion sup{font-size:9px}.ion-na{background:#e7b84b;color:#523600}.ion-k{background:#76b9ff;color:#062a60}.ion-cl{background:#d8e4f3;color:#304862}.ion-ca{background:#9877ff;color:white}
+
+@keyframes float{50%{margin-top:-13px}}
+
+/* ===========================================================
+   FREE-FLOATING WANDER (floating/"cytoplasm" ions only)
+   The membrane-row ions keep the original simple up/down bob
+   (they need to stay tightly aligned near the membrane surface).
+   The free-floating ions below get a richer, organic drift in
+   both x and y instead \u2014 sized so even at its widest point the
+   drift stays well clear of the membrane above it.
+   Only animation-name/duration/timing/iteration are set here
+   (not the "animation" shorthand) so each ion keeps its own
+   staggered start time from the animation-delay set elsewhere.
+=========================================================== */
+@keyframes freeFloat{
+  0%{transform:translate(0,0)}
+  22%{transform:translate(42px,-30px)}
+  48%{transform:translate(-26px,16px)}
+  74%{transform:translate(32px,34px)}
+  100%{transform:translate(0,0)}
+}
+.ion.ion-zone-bottom:not(.travel-ion){
+  animation-name:freeFloat;
+  animation-duration:15s;
+  animation-timing-function:ease-in-out;
+  animation-iteration-count:infinite;
+}
+.channel-section.is-open .ion-2{transform:translate(150px,360px);opacity:.2}.channel-section.is-open .ion-5{transform:translate(10px,410px);opacity:.18}.channel-section.is-open .ion-3{transform:translate(-150px,370px);opacity:.18}
+.account-panel{position:absolute;left:50%;bottom:4%;width:min(1050px,92%);transform:translate(-50%,80px);opacity:0;display:grid;grid-template-columns:1fr 480px;gap:50px;align-items:center;transition:.6s ease;z-index:8}
+.channel-section.show-account .account-panel{transform:translate(-50%,0);opacity:1}
+.account-benefits h3{font:700 clamp(32px,4vw,50px)/1.05 var(--display)}.account-benefits ul{margin:24px 0 0 20px;color:var(--muted)}.account-benefits li{margin:8px 0}
+.auth-card{padding:30px;border-radius:22px;background:white;color:#10244c;box-shadow:0 25px 70px rgba(0,0,0,.35)}
+.auth-card h3{font:700 27px var(--display)}.auth-card>p{color:#697896}
+.auth-tabs{display:flex;background:#eef2f8;padding:4px;border-radius:10px;margin-bottom:22px}.auth-tab{flex:1;border:0;border-radius:8px;padding:10px;background:none;font:600 14px var(--display);cursor:pointer}.auth-tab.is-active{background:white;box-shadow:0 2px 8px rgba(0,0,0,.1)}
+.google-btn{width:100%;margin-top:22px;padding:12px;border:1px solid #d6ddea;border-radius:9px;background:white;display:flex;align-items:center;justify-content:center;gap:10px;font:600 15px var(--display);cursor:pointer}
+.auth-divider{display:flex;align-items:center;gap:10px;margin:18px 0;color:#8490a7;font-size:12px}.auth-divider:before,.auth-divider:after{content:"";height:1px;background:#dde3ec;flex:1}
+.form-field{display:grid;gap:5px;margin-bottom:12px}.form-field label{font:600 13px var(--display)}.form-field input{width:100%;padding:11px 12px;border:1px solid #d5ddea;border-radius:8px}
+.auth-submit{width:100%;margin-top:5px}.auth-message{min-height:22px;color:#a64700!important;font-size:13px;margin-top:10px}.auth-terms{text-align:center;font-size:11px;margin-top:12px!important}
+
+.protected-page{visibility:hidden}.auth-ready .protected-page{visibility:visible}
+.page-header{padding:62px 0;background:linear-gradient(135deg,#0d3a84,#061a42)}.page-header h1{font:700 clamp(42px,6vw,72px)/1 var(--display)}.page-header p:last-child{color:var(--muted);margin-top:13px}
+.subject-content,.lesson-page,.dashboard-page{padding-top:60px;padding-bottom:90px}.subject-tools{display:flex;justify-content:space-between;align-items:end;gap:25px;margin-bottom:30px}
+.content-tabs{display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end}.content-tab{border:1px solid rgba(255,255,255,.16);border-radius:999px;padding:8px 13px;background:rgba(255,255,255,.04);color:white;cursor:pointer}.content-tab.is-active{background:var(--gold);color:#10244c}
+.lesson-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px}.lesson-card{border:1px solid rgba(255,255,255,.12);border-radius:14px;overflow:hidden;background:rgba(255,255,255,.04)}.lesson-card:hover{transform:translateY(-3px);border-color:var(--gold)}.lesson-thumb{height:110px;display:grid;place-items:center;background:linear-gradient(135deg,#0e408f,#061b45);font-size:25px;color:var(--gold)}.lesson-body{padding:16px}.lesson-body p{font:600 11px var(--mono);text-transform:uppercase;color:var(--muted)}.lesson-body h3{font:600 17px var(--display);margin-top:6px}.lesson-body span{display:inline-block;margin-top:10px;font-size:12px;color:var(--gold2)}.coming-soon{opacity:.5}
+.lesson-page{max-width:760px}.video-placeholder{height:380px;display:grid;place-items:center;border:1px solid rgba(255,255,255,.12);border-radius:15px;background:rgba(255,255,255,.04);color:var(--muted)}.lesson-desc{margin:24px 0 40px;color:var(--muted)}.quiz-q{margin:25px 0}.quiz-question{font:600 17px var(--display);margin-bottom:12px}.quiz-options{display:grid;gap:8px}.quiz-option{padding:12px;text-align:left;border:1px solid rgba(255,255,255,.16);border-radius:8px;background:rgba(255,255,255,.04);color:white}.quiz-option.selected{border:2px solid var(--gold)}.quiz-option.correct{background:rgba(60,220,140,.14);border-color:#4adb9b}.quiz-option.incorrect{background:rgba(247,100,100,.13);border-color:#f06c6c}.quiz-result{margin-top:15px;color:var(--gold2)}
+.quiz-diagnosis{margin-top:24px}.diagnosis-panel{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.12);border-radius:12px;padding:20px 22px}.diagnosis-panel.diagnosis-clear{padding:16px 20px;color:var(--gold2)}.misconception-list{list-style:none;padding:0;margin:0 0 18px;display:grid;gap:14px}.misconception-list li strong{display:block;font:600 14px var(--display);margin-bottom:4px}.misconception-list li p{margin:0;color:var(--muted);font-size:14px;line-height:1.5}.rec-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px}.rec-card{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:10px;padding:14px 16px}.rec-card.coming-soon{opacity:.5}.rec-type{font:600 11px var(--display);text-transform:uppercase;letter-spacing:.05em;color:var(--muted);margin-bottom:4px}.rec-title{font:600 14px var(--display);margin-bottom:8px}.rec-link{font-size:13px;color:var(--gold2)}.coming-soon-badge{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.05em}.diagnosis-empty{color:var(--muted);font-size:14px;margin:0}
+.dashboard-page h1{font:700 clamp(44px,6vw,74px)/1 var(--display)}.dashboard-lead{max-width:720px;color:var(--muted);font-size:18px;margin-top:15px}.dashboard-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:42px}.dashboard-card{padding:28px;border:1px solid rgba(255,255,255,.12);border-radius:18px;background:rgba(255,255,255,.04)}.dashboard-card h2{font:700 25px var(--display);margin:12px 0 6px}.dashboard-card p{color:var(--muted)}
+.account-menu{position:relative}.account-trigger{display:flex;align-items:center;gap:8px;border:1px solid rgba(255,255,255,.2);background:rgba(255,255,255,.05);padding:6px 10px 6px 6px;border-radius:999px;color:white}.account-trigger img,.account-trigger>span{width:30px;height:30px;border-radius:50%;object-fit:cover;display:grid;place-items:center;background:var(--gold);color:#10244c}.account-dropdown{position:absolute;right:0;top:48px;min-width:190px;padding:7px;border-radius:10px;background:white;color:#10244c;box-shadow:0 15px 40px rgba(0,0,0,.3)}.account-dropdown a,.account-dropdown button{display:block;width:100%;padding:10px;border:0;background:none;text-align:left;color:inherit}
+.site-footer{padding:25px 0;background:#03102a;color:var(--muted);font-size:13px}
+
+@media(max-width:850px){
+  .main-nav,[data-auth-nav]{display:none}.menu-btn{display:block}.mobile-nav{display:block}
+  .account-panel{grid-template-columns:1fr;gap:20px;bottom:2%;max-height:76%;overflow:auto}.account-benefits{display:none}.auth-card{padding:23px}
+  .channel-copy{top:4%}.channel-copy h2{font-size:38px}.channel-protein{transform:translateX(-50%) scale(.8)}.lipid-gap{flex-basis:240px}
+  .ion{width:46px;height:46px;font-size:12px}.subject-tools{align-items:flex-start;flex-direction:column}.content-tabs{justify-content:flex-start}.dashboard-grid{grid-template-columns:1fr}
+}
+@media(prefers-reduced-motion:reduce){
+  *{animation-duration:.001ms!important;transition-duration:.001ms!important;scroll-behavior:auto!important}
+  .channel-left{transform:translateX(-58px)}.channel-right{transform:translateX(58px)}.account-panel{opacity:1;transform:translate(-50%,0)}
+}
+
+/* --- faster, smoother channel opening --- */
+.channel-half{
+  will-change:transform;
+  transition:none;
+}
+.channel-left{
+  transform:
+    translateX(calc(var(--channel-progress) * -78px))
+    rotate(calc(var(--channel-progress) * -10deg));
+}
+.channel-right{
+  transform:
+    translateX(calc(var(--channel-progress) * 78px))
+    rotate(calc(var(--channel-progress) * 10deg));
+}
+.channel-glow{
+  width:92px;
+  transform:translateX(-50%) scaleX(calc(.08 + var(--channel-progress) * 1.05));
+}
+
+/* --- larger ion field --- */
+.ion-field{position:absolute;inset:0;z-index:5;pointer-events:none}
+.ion-field .ion{
+  left:calc(var(--x) * 1%);
+  top:calc(var(--y) * 1%);
+  margin-left:-29px;
+  margin-top:-29px;
+  animation-delay:var(--delay);
+  will-change:transform,opacity;
+}
+.ion-field .ion-zone-top:not(.travel-ion){
+  transform:translateY(calc(var(--channel-progress) * -8px));
+}
+.ion-field .ion-zone-bottom:not(.travel-ion){
+  transform:translateY(calc(var(--channel-progress) * 8px));
+}
+
+/* Make the path feel like it actually enters the pore. */
+.channel-protein::after{
+  content:"";
+  position:absolute;
+  left:50%;
+  top:18px;
+  width:26px;
+  height:196px;
+  transform:translateX(-50%) scaleY(var(--channel-progress));
+  transform-origin:center;
+  border-radius:999px;
+  background:linear-gradient(180deg,transparent,rgba(255,226,145,.82),transparent);
+  filter:blur(6px);
+  opacity:var(--channel-progress);
+}
+
+
+/* --- v3 channel heading placement --- */
+.channel-copy{
+  top:1.2%;
+  padding:0 20px;
+  z-index:12;
+}
+.channel-copy h2{
+  max-width:900px;
+  margin:0 auto;
+}
+.channel-copy p:last-child{
+  max-width:760px;
+  margin:10px auto 0;
+}
+@media(max-width:850px){
+  .channel-copy{top:.5%}
+  .channel-copy h2{font-size:34px}
+  .channel-copy p:last-child{font-size:14px}
+}
+
+
+/* --- v4 account-section layout fixes --- */
+
+/* Give the sticky animation the full viewport after the public header fades,
+   so the account card is no longer clipped at the top. */
+.channel-sticky{
+  top:0;
+  height:100svh;
+}
+
+/* Move the main channel heading clearly above the ions and membrane. */
+.channel-copy{
+  top:0.4%;
+  z-index:20;
+  padding:0 28px;
+}
+.channel-copy .eyebrow{
+  margin-bottom:6px;
+}
+.channel-copy h2{
+  max-width:880px;
+  margin:0 auto;
+  font-size:clamp(34px,4.6vw,64px);
+  line-height:.98;
+}
+.channel-copy p:last-child{
+  max-width:720px;
+  margin:7px auto 0;
+  font-size:15px;
+}
+
+/* Keep the account controls fully inside the viewport. */
+.account-panel{
+  width:min(1180px,94%);
+  bottom:2.2%;
+  grid-template-columns:minmax(280px,350px) minmax(380px,440px);
+  justify-content:space-between;
+  gap:clamp(28px,6vw,110px);
+  align-items:end;
+}
+
+/* Put the benefits copy inside its own blue panel and move it away from the pore. */
+.account-benefits{
+  width:100%;
+  padding:28px 28px 26px;
+  border:1px solid rgba(231,184,75,.72);
+  border-radius:20px;
+  background:linear-gradient(160deg,rgba(9,48,112,.97),rgba(4,24,62,.98));
+  box-shadow:0 18px 45px rgba(0,0,0,.28);
+  color:var(--gold2);
+}
+.account-benefits .eyebrow{
+  color:var(--gold);
+}
+.account-benefits h3{
+  color:var(--gold);
+  font-size:clamp(27px,3vw,42px);
+  line-height:1.05;
+}
+.account-benefits ul{
+  margin:20px 0 0 20px;
+  color:var(--gold2);
+}
+.account-benefits li{
+  margin:7px 0;
+}
+
+/* Slightly compact the white authentication card so its top never gets cropped. */
+.auth-card{
+  padding:24px 28px 22px;
+  border-radius:20px;
+}
+.auth-tabs{
+  margin-bottom:16px;
+}
+.auth-card h3{
+  font-size:25px;
+}
+.google-btn{
+  margin-top:17px;
+  padding:10px;
+}
+.auth-divider{
+  margin:14px 0;
+}
+.form-field{
+  margin-bottom:9px;
+}
+.form-field input{
+  padding:9px 11px;
+}
+.auth-submit{
+  padding:10px 16px;
+}
+.auth-terms{
+  margin-top:8px!important;
+}
+
+@media(max-width:1000px){
+  .account-panel{
+    width:min(940px,94%);
+    grid-template-columns:minmax(250px,320px) minmax(360px,420px);
+    gap:34px;
+  }
+  .account-benefits{
+    padding:22px;
+  }
+}
+
+@media(max-width:850px){
+  .channel-sticky{
+    top:0;
+    height:100svh;
+  }
+  .channel-copy{
+    top:.2%;
+    padding:0 16px;
+  }
+  .channel-copy h2{
+    font-size:31px;
+  }
+  .channel-copy p:last-child{
+    font-size:13px;
+    margin-top:5px;
+  }
+  .account-panel{
+    width:min(560px,94%);
+    bottom:1.2%;
+    grid-template-columns:1fr;
+    max-height:72svh;
+    overflow:auto;
+    gap:14px;
+  }
+  .account-benefits{
+    display:block;
+    padding:18px 20px;
+  }
+  .account-benefits h3{
+    font-size:26px;
+  }
+  .account-benefits ul{
+    display:none;
+  }
+  .auth-card{
+    padding:20px;
+  }
+}
+
+
+/* --- v5 final account-section adjustments --- */
+
+/* Move the remaining account-section heading slightly higher. */
+.channel-copy{
+  top:0;
+}
+.channel-copy .eyebrow{
+  margin-bottom:3px;
+}
+
+/* Give both account boxes equal width and height. */
+.account-panel{
+  grid-template-columns:repeat(2,minmax(0,440px));
+  justify-content:center;
+  align-items:stretch;
+  gap:clamp(30px,5vw,72px);
+}
+
+.account-benefits,
+.auth-card{
+  width:100%;
+  min-height:520px;
+  height:520px;
+}
+
+.account-benefits{
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+}
+
+.auth-card{
+  display:flex;
+  flex-direction:column;
+}
+
+.auth-card form{
+  flex:1;
+}
+
+@media(max-width:1000px){
+  .account-panel{
+    grid-template-columns:repeat(2,minmax(0,410px));
+  }
+
+  .account-benefits,
+  .auth-card{
+    min-height:500px;
+    height:500px;
+  }
+}
+
+@media(max-width:850px){
+  .channel-copy{
+    top:0;
+  }
+
+  .account-panel{
+    grid-template-columns:1fr;
+    align-items:start;
+  }
+
+  .account-benefits,
+  .auth-card{
+    height:auto;
+    min-height:0;
+  }
+}
+
+
+/* --- v6 box sizing and vertical placement --- */
+
+/* Move both panels higher and give them a little more room. */
+.account-panel{
+  bottom:6.5%;
+  grid-template-columns:repeat(2,minmax(0,460px));
+  gap:clamp(34px,5vw,78px);
+  align-items:stretch;
+}
+
+/* Keep the panels identical in size while preventing viewport clipping. */
+.account-benefits,
+.auth-card{
+  width:100%;
+  height:clamp(520px,58svh,550px);
+  min-height:520px;
+  max-height:calc(100svh - 150px);
+  box-sizing:border-box;
+}
+
+/* Keep all white-card content contained cleanly. */
+.auth-card{
+  overflow:hidden;
+}
+
+.auth-card form{
+  display:flex;
+  flex-direction:column;
+  flex:1;
+}
+
+.auth-submit{
+  margin-top:auto;
+}
+
+@media(max-width:1000px){
+  .account-panel{
+    bottom:6%;
+    grid-template-columns:repeat(2,minmax(0,430px));
+    gap:30px;
+  }
+
+  .account-benefits,
+  .auth-card{
+    height:clamp(510px,57svh,540px);
+    min-height:510px;
+    max-height:calc(100svh - 145px);
+  }
+}
+
+@media(max-width:850px){
+  .account-panel{
+    bottom:3%;
+    width:min(590px,94%);
+  }
+
+  .account-benefits,
+  .auth-card{
+    height:auto;
+    min-height:0;
+    max-height:none;
+  }
+
+  .auth-card{
+    overflow:visible;
+  }
+}
+
+
+/* --- v7 full-screen account card --- */
+
+/* One large centered panel instead of the blue benefits box + white box layout. */
+.account-panel{
+  top:92px;
+  right:auto;
+  bottom:24px;
+  left:50%;
+  width:min(1120px,92vw);
+  height:auto;
+  display:block;
+  transform:translate(-50%,80px);
+  opacity:0;
+  overflow:visible;
+}
+
+.channel-section.show-account .account-panel{
+  transform:translate(-50%,0);
+  opacity:1;
+}
+
+/* The white card now fills almost the entire visible account area. */
+.account-panel .auth-card{
+  width:100%;
+  height:100%;
+  min-height:0;
+  max-height:none;
+  padding:38px 44px 30px;
+  border-radius:26px;
+  overflow:auto;
+  box-sizing:border-box;
+}
+
+/* Keep the form readable inside the much larger panel. */
+.auth-card > h3,
+.auth-card > p,
+.auth-card > .google-btn,
+.auth-card > .auth-divider,
+.auth-card > form,
+.auth-card > .auth-message,
+.auth-card > .auth-terms,
+.auth-card > .auth-tabs{
+  width:min(760px,100%);
+  margin-left:auto;
+  margin-right:auto;
+}
+
+.auth-card > h3{
+  font-size:34px;
+  text-align:center;
+  margin-top:8px;
+}
+
+.auth-card > p{
+  text-align:center;
+}
+
+.auth-tabs{
+  margin-bottom:24px;
+}
+
+.google-btn{
+  margin-top:26px;
+  padding:13px;
+}
+
+.auth-divider{
+  margin-top:20px;
+  margin-bottom:20px;
+}
+
+/* Use the extra width so the account form feels intentional, not stretched. */
+.auth-card form{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:15px 18px;
+  flex:none;
+}
+
+.auth-card .form-field{
+  margin:0;
+}
+
+.auth-card .form-field input{
+  padding:12px 13px;
+}
+
+.auth-card .auth-submit{
+  grid-column:1 / -1;
+  width:100%;
+  margin-top:4px;
+  padding:13px 18px;
+}
+
+.auth-message{
+  margin-top:14px!important;
+  text-align:center;
+}
+
+.auth-terms{
+  margin-top:10px!important;
+  text-align:center;
+}
+
+/* The removed blue panel should never reserve space if old markup is cached. */
+.account-benefits{
+  display:none!important;
+}
+
+@media(max-width:850px){
+  .account-panel{
+    top:74px;
+    bottom:14px;
+    width:min(96vw,680px);
+    max-height:none;
+    overflow:visible;
+  }
+
+  .account-panel .auth-card{
+    padding:24px 20px 22px;
+    border-radius:20px;
+    overflow:auto;
+  }
+
+  .auth-card > h3{
+    font-size:28px;
+  }
+
+  .auth-card form{
+    grid-template-columns:1fr;
+    gap:12px;
+  }
+
+  .auth-card .auth-submit{
+    grid-column:1;
+  }
+}
+
+
+/* --- v8 lighter channel scrolling and ion cleanup --- */
+
+/* Less total scroll distance is required to open the channel and reveal sign-in. */
+.channel-section{
+  height:178vh;
+}
+
+/* Keep all non-traveling ions comfortably clear of the lipid heads. */
+.ion-field .ion-zone-top:not(.travel-ion){
+  transform:translateY(calc(var(--channel-progress) * -14px));
+}
+
+/* Slightly soften the protein motion so it feels responsive rather than heavy. */
+.channel-left{
+  transform:
+    translateX(calc(var(--channel-progress) * -72px))
+    rotate(calc(var(--channel-progress) * -8deg));
+}
+
+.channel-right{
+  transform:
+    translateX(calc(var(--channel-progress) * 72px))
+    rotate(calc(var(--channel-progress) * 8deg));
+}
+
+
+/* --- v9 heading position tweak --- */
+
+/* Move the white heading higher so it clears the floating ions. */
+.channel-copy{
+  top:-6.5% !important;
+}
+
+@media(max-width:850px){
+  .channel-copy{
+    top:-2.5% !important;
+  }
+}
+
+
+/* --- v10 heading clipping fix --- */
+
+/* Keep the heading inside the visible sticky viewport with breathing room. */
+.channel-copy{
+  top:2.5% !important;
+  padding-top:8px;
+}
+
+/* Keep the headline above the ion field without clipping. */
+.channel-copy h2{
+  max-width:920px;
+  margin:0 auto;
+  line-height:.96;
+}
+
+/* Push the upper ion field farther below the headline area. */
+.ion-field .ion-zone-top:not(.travel-ion){
+  transform:translateY(calc(18px + var(--channel-progress) * -10px));
+}
+
+@media(max-width:850px){
+  .channel-copy{
+    top:1.5% !important;
+    padding-top:6px;
+  }
+
+  .channel-copy h2{
+    font-size:30px;
+    line-height:1;
+  }
+}
+
+
+/* --- v11 ion cleanup --- */
+.ion-field .ion-zone-top:not(.travel-ion){
+  transform:translateY(calc(-12px + var(--channel-progress) * -6px));
+}
+
+/* ===========================================================
+   ONBOARDING WIZARD
+=========================================================== */
+.onboard-progress{display:flex;gap:8px;margin-bottom:28px}
+.onboard-dot{height:6px;flex:1;border-radius:3px;background:rgba(255,255,255,.14)}
+.onboard-dot.is-active{background:var(--gold)}
+.onboard-dot.is-done{background:rgba(231,184,75,.45)}
+.onboard-step{display:none}
+.onboard-step.is-active{display:block}
+.onboard-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px}
+.onboard-choice{text-align:left;padding:16px 18px;border-radius:12px;border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.04);color:var(--white);cursor:pointer;transition:.15s;display:flex;flex-direction:column;gap:4px}
+.onboard-choice:hover{border-color:var(--gold);transform:translateY(-2px)}
+.onboard-choice.is-selected{border-color:var(--gold);border-width:2px;background:rgba(231,184,75,.1)}
+.onboard-choice-title{font:600 15px var(--display)}
+.onboard-choice-sub{font-size:12px;color:var(--muted)}
+.btn:disabled{opacity:.4;cursor:default}
+.btn:disabled:hover{transform:none}
+
+/* ===========================================================
+   DASHBOARD PERSONALIZATION
+=========================================================== */
+.dashboard-card{position:relative}
+.dashboard-card.is-recommended{border-color:var(--gold)}
+.recommended-badge{position:absolute;top:14px;right:14px;font:600 11px var(--mono);text-transform:uppercase;letter-spacing:.04em;color:#10244c;background:var(--gold);padding:4px 8px;border-radius:20px}
+
+/* ===========================================================
+   CLICK-THROUGH FIX
+   .channel-copy (the big heading above the sign-up card) fades
+   to opacity:0 as the reveal animation finishes, but an invisible
+   element still intercepts clicks unless pointer-events is
+   disabled — and its z-index sits above the sign-up card itself,
+   right over the auth tabs. Without this, "Sign in" (and
+   technically "Create account", though it's selected by default
+   so nobody notices) is unclickable once the card is showing.
+=========================================================== */
+.channel-copy{
+  pointer-events:none;
+}
+
+/* ===========================================================
+   HIDDEN-FIELD FIX
+   .form-field sets display:grid, which (being a class selector)
+   overrides the browser's default "[hidden] { display:none }"
+   rule. Without this, fields marked hidden by auth.js (like
+   First name / Confirm password in sign-in mode) stayed visible
+   anyway. This restores the expected behavior.
+=========================================================== */
+.form-field[hidden]{
+  display:none;
+}
+
+/* ===========================================================
+   NAV: DASHBOARD EMPHASIS
+   Dashboard is the account home base, so it gets placed first
+   (leftmost, right after the logo) and styled with more visual
+   weight than the subject links next to it.
+=========================================================== */
+.nav-dashboard{
+  font-size:16px;
+  font-weight:700;
+  color:var(--white);
+  padding:6px 14px;
+  border:1px solid rgba(255,255,255,.18);
+  border-radius:8px;
+  margin-right:6px;
+}
+.nav-dashboard:hover{
+  border-color:var(--gold);
+  color:var(--gold2);
+}
+
+/* ===========================================================
+   ROOMS (DRAFT)
+=========================================================== */
+.rooms-empty{color:var(--muted);padding:30px 0}
+.rooms-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
+.room-card{display:block;padding:18px 20px;border-radius:14px;border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.04);color:var(--white);transition:.15s}
+.room-card:hover{transform:translateY(-3px);border-color:var(--gold)}
+.room-card-school{font:600 11px var(--mono);text-transform:uppercase;letter-spacing:.04em;color:var(--muted);margin-bottom:4px}
+.room-card-title{font:700 18px var(--display);margin-bottom:6px}
+.room-card-desc{font-size:13px;color:var(--muted);margin-bottom:10px}
+.room-card-meta{font:600 11px var(--mono);color:var(--gold2)}
+
+.room-form-panel{margin-top:26px;padding:24px;border-radius:14px;border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.04)}
+.room-form-panel .form-field label{color:var(--white)}
+.room-form-panel .form-field input{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.18);color:var(--white);padding:11px 12px;border-radius:8px;width:100%}
+.room-form-actions{display:flex;gap:10px;margin-top:16px}
+
+.join-bar{display:flex;justify-content:space-between;align-items:center;gap:14px;padding:14px 18px;border-radius:12px;background:rgba(231,184,75,.1);border:1px solid rgba(231,184,75,.35);margin-bottom:24px;flex-wrap:wrap}
+.join-bar p{margin:0;color:var(--gold2);font-size:14px}
+
+.message-feed{display:flex;flex-direction:column;gap:16px;margin-bottom:26px}
+.feed-empty{color:var(--muted);padding:20px 0}
+.message-item{padding:14px 18px;border-radius:12px;border:1px solid rgba(255,255,255,.1);background:rgba(255,255,255,.03)}
+.message-meta{display:flex;justify-content:space-between;font:600 12px var(--mono);color:var(--muted);margin-bottom:8px}
+.message-author{color:var(--gold2)}
+.message-text{white-space:pre-wrap;line-height:1.5}
+.message-file{margin-top:8px;font-size:13px;color:var(--muted)}
+
+.composer{padding:18px;border-radius:14px;border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.04)}
+.composer-identity{display:flex;align-items:center;gap:10px;margin-bottom:12px;font-size:13px}
+.composer-identity label{color:var(--muted)}
+.composer-identity select,.composer-identity input{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.18);color:var(--white);padding:8px 10px;border-radius:6px}
+.composer textarea{width:100%;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.18);color:var(--white);border-radius:8px;padding:12px;font:15px var(--body);resize:vertical}
+.composer-actions{display:flex;align-items:center;gap:12px;margin-top:12px}
+.file-attach-btn{font-size:13px;color:var(--gold2);cursor:pointer;padding:8px 12px;border:1px solid rgba(255,255,255,.18);border-radius:6px}
+.composer-file-name{font-size:12px;color:var(--muted);flex:1}
+.composer-note{margin-top:10px;font-size:12px;color:var(--muted)}
+
+/* ===========================================================
+   LESSON CONTENT SKELETON
+   Shown for a subtopic that exists (it's part of the planned
+   curriculum) but doesn't have a video or written explanation
+   yet. Deliberately honest rather than hidden \u2014 shows students
+   (and you, reviewing content) exactly what's built vs. planned.
+=========================================================== */
+.content-skeleton{
+  border:1px dashed rgba(255,255,255,.22);
+  border-radius:12px;
+  padding:28px 22px;
+  text-align:center;
+  margin-bottom:22px;
+  background:rgba(255,255,255,.02);
+}
+.skeleton-label{
+  font:600 12px var(--mono);
+  text-transform:uppercase;
+  letter-spacing:.05em;
+  color:var(--gold2);
+  margin-bottom:8px;
+}
+.skeleton-placeholder{
+  color:var(--muted);
+  font-size:14px;
+}
+.written-content{margin-bottom:22px}
+.written-content .skeleton-label{text-align:left;margin-bottom:10px}
+.written-body{line-height:1.7;color:var(--white)}
+
+/* Loading state for the rooms grid while Firestore data is fetching */
+.rooms-loading{color:var(--muted);padding:30px 0;grid-column:1/-1}
+
+/* ===========================================================
+   HIDDEN-ATTRIBUTE FIX (same root cause as the earlier sign-in
+   tab bug): .join-bar sets display:flex, which as a class rule
+   overrides the browser's default "[hidden] { display:none }".
+   Without this, joinBar.hidden = true (set in room.js once
+   someone joins) had no visible effect \u2014 the bar stayed shown.
+=========================================================== */
+.join-bar[hidden]{
+  display:none;
+}
+
+/* Small delete link shown only on a message you authored */
+.message-delete-btn{
+  margin-top:8px;
+  background:none;
+  border:none;
+  color:#f87171;
+  font-size:12px;
+  cursor:pointer;
+  padding:0;
+}
+.message-delete-btn:hover{ text-decoration:underline; }
+
+/* ===========================================================
+   DASHBOARD CARDS (redesigned): title first, then a clickable
+   animated illustration, then a short description.
+=========================================================== */
+.dashboard-card{display:flex;flex-direction:column;align-items:center;text-align:center;gap:10px}
+.dashboard-card h2{margin:0}
+.card-art{width:100%;max-width:170px;height:auto;margin:4px 0}
+
+/* --- Biology: pulsing cell --- */
+.cell-membrane{fill:rgba(85,239,159,.12);stroke:#55ef9f;stroke-width:1.5}
+.cell-nucleus{fill:rgba(124,110,255,.35);stroke:#8f86ff;stroke-width:1.5}
+.cell-nucleolus{fill:#8f86ff}
+.cell-mito{fill:rgba(255,180,120,.35);stroke:#ffb478;stroke-width:1.2}
+.mito-cristae{fill:none;stroke:#ffb478;stroke-width:1}
+.rough-er{fill:none;stroke:#7ecbe0;stroke-width:1.3}
+.ribosome-dot{fill:#7ecbe0}
+.golgi{fill:none;stroke:#d99bd9;stroke-width:1.3;stroke-linecap:round}
+.cell-vesicle{fill:#55ef9f;opacity:.7}
+.cell-nucleus-group{animation:cellPulse 3.2s ease-in-out infinite;transform-origin:92px 98px}
+@keyframes cellPulse{0%,100%{transform:scale(1)}50%{transform:scale(1.08)}}
+
+/* --- Chemistry: orbiting electrons around two bonded atoms --- */
+.electron-orbit{fill:none;stroke:rgba(255,255,255,.18);stroke-width:1}
+.atom-nucleus-a{fill:rgba(55,138,221,.3);stroke:#378add;stroke-width:1.5}
+.atom-nucleus-b{fill:rgba(85,239,159,.3);stroke:#55ef9f;stroke-width:1.5}
+.atom-label{font:600 13px var(--display);fill:var(--white)}
+.electron-dot{fill:var(--gold)}
+.electron-spin-a{transform-origin:70px 100px;animation:spin 4s linear infinite}
+.electron-spin-b{transform-origin:130px 100px;animation:spin 4s linear infinite reverse}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+/* --- Physics: apple spinning in place, wind streaks suggesting fall (a nod to Newton) --- */
+.apple-body{fill:#e24b4a;stroke:#a32d2d;stroke-width:1.2}
+.apple-stem{fill:none;stroke:#5f6e3a;stroke-width:2.5;stroke-linecap:round}
+.apple-leaf{fill:#7fbf5a;stroke:#4f7d38;stroke-width:1}
+.apple-spin{animation:appleSpin 3.6s linear infinite;transform-origin:100px 81px}
+@keyframes appleSpin{to{transform:rotate(360deg)}}
+
+.wind-line{stroke:rgba(255,255,255,.55);stroke-width:2;stroke-linecap:round;opacity:0}
+.wind-1{animation:windStream 1.6s linear infinite}
+.wind-2{animation:windStream 1.6s linear infinite;animation-delay:-.4s}
+.wind-3{animation:windStream 1.6s linear infinite;animation-delay:-.8s}
+.wind-4{animation:windStream 1.6s linear infinite;animation-delay:-1.2s}
+@keyframes windStream{
+  0%{transform:translateY(22px);opacity:0}
+  20%{opacity:1}
+  75%{opacity:1}
+  100%{transform:translateY(-30px);opacity:0}
+}
+@media (prefers-reduced-motion:reduce){
+  .cell-nucleus-group,.electron-spin-a,.electron-spin-b,.apple-spin,.wind-1,.wind-2,.wind-3,.wind-4{animation:none}
+}
+
+/* ===========================================================
+   PICK UP WHERE YOU LEFT OFF
+=========================================================== */
+.continue-section{margin-top:48px}
+.continue-card{display:flex;align-items:center;gap:16px;padding:20px 24px;border:1px solid rgba(231,184,75,.35);border-radius:14px;background:rgba(231,184,75,.08);max-width:520px;transition:.15s}
+.continue-card:hover{border-color:var(--gold);transform:translateY(-2px)}
+.continue-type{font:600 11px var(--mono);text-transform:uppercase;letter-spacing:.05em;color:var(--gold2);white-space:nowrap}
+.continue-title{font:600 16px var(--display);color:var(--white);flex:1}
+.continue-arrow{color:var(--gold);font-size:18px}
